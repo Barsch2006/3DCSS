@@ -1,8 +1,8 @@
 :root {
-  --box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
-  --blue-color: rgba(0, 159, 227, 0.5);
-  --green-color: rgba(148, 193, 31, 0.5);
-  --orange-color: rgba(243, 148, 0, 0.5);
+  --box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+  --blue-color: rgba(0, 159, 227, 0.6);
+  --green-color: rgba(148, 193, 31, 0.6);
+  --orange-color: rgba(243, 148, 0, 0.6);
   --orange-size: 5em;
   --green-size: 4em;
   --blue-size: 3em;
@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: min(5svh, 5svw);
+  font-size: min(4.5svh, 4.5svw);
   perspective: 10em;
   perspective-origin: 50% calc(50% - 3em);
 }
@@ -30,6 +30,7 @@ body {
 .scene {
   position: relative;
   transform-style: preserve-3d;
+  margin-top: 3em;
 }
 
 .scene * {
@@ -44,7 +45,7 @@ body {
   background-repeat: repeat;
   background-size: 100%, 2em 2em;
   position: absolute;
-  top: 2.5em;
+  top: 4.5em;
   transform: translate(-50%, -50%) rotateX(90deg);
 }
 
@@ -94,12 +95,12 @@ body {
 
 #orange .bottom {
   position: absolute;
-  width: 2em;
-  height: 2em;
-  background-color: #0000002e;
+  width: 100%;
+  height: 100%;
+  background-color: var(--orange-color);
   bottom: 0;
-  transform: translateY(1em) rotateX(90deg);
-  box-shadow: var(--box-shadow) outset;
+  transform: translateY(2.5em) rotateX(270deg);
+  box-shadow: var(--box-shadow) inset;
 }
 
 #green {
@@ -220,20 +221,18 @@ body {
     rotateZ(52.75deg);
 }
 
-h1 {
-  color: #fff;
-  position: fixed;
-  transform: translateZ(+1em) translateY(-3.5em) translateX(-2.9em);
-  font-size: 2.5em;
-  line-height: 1.5em;
-  text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  text-shadow: 0 1px 0 #fff, 0 2px 0 #2b2b2b, 0 3px 0 #474747, 0 4px 0 #535252,
-    0 5px 0 #737373, 0 6px 0 #848484, 0 7px 0 #b3b3b3, 0 8px 0 #c1c1c1,
-    0 0 5px #002955, 0 -1px 3px;
+#orange {
+  animation: cubeAnimationOrange infinite 20s forwards;
 }
 
-h1 {
-  display: none;
+@keyframes cubeAnimationOrange {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
 }
