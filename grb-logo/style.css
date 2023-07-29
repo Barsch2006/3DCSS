@@ -1,0 +1,239 @@
+:root {
+  --box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
+  --blue-color: rgba(0, 159, 227, 0.5);
+  --green-color: rgba(148, 193, 31, 0.5);
+  --orange-color: rgba(243, 148, 0, 0.5);
+  --orange-size: 5em;
+  --green-size: 4em;
+  --blue-size: 3em;
+}
+
+* {
+  user-select: none !important;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: min(5svh, 5svw);
+  perspective: 10em;
+  perspective-origin: 50% calc(50% - 3em);
+}
+
+.scene {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.scene * {
+  transform-style: preserve-3d;
+}
+
+.floor {
+  width: 20em;
+  height: 20em;
+  background-image: radial-gradient(#0000, #000 60%),
+    repeating-conic-gradient(#222222 0deg 90deg, #303030 90deg 180deg);
+  background-repeat: repeat;
+  background-size: 100%, 2em 2em;
+  position: absolute;
+  top: 2.5em;
+  transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+#orange {
+  width: 5em;
+  height: 5em;
+  position: absolute;
+  top: -2.5em;
+  left: -2.5em;
+}
+
+#orange .left,
+#orange .right,
+#orange .front,
+#orange .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--orange-color);
+  box-shadow: var(--box-shadow) inset;
+}
+
+#orange .front {
+  transform: translateZ(2.5em);
+}
+
+#orange .right {
+  transform: rotateY(90deg) translateZ(2.5em);
+}
+
+#orange .left {
+  transform: rotateY(-90deg) translateZ(2.5em);
+}
+
+#orange .back {
+  transform: rotateY(180deg) translateZ(2.5em);
+}
+
+#orange .top {
+  position: absolute;
+  width: 5em;
+  height: 100%;
+  background-color: var(--orange-color);
+  box-shadow: var(--box-shadow) inset;
+  transform: rotateX(90deg) translateZ(2.5em);
+}
+
+#orange .bottom {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background-color: #0000002e;
+  bottom: 0;
+  transform: translateY(1em) rotateX(90deg);
+  box-shadow: var(--box-shadow) outset;
+}
+
+#green {
+  width: 4em;
+  height: 4em;
+  position: absolute;
+  top: -2em;
+  left: -2em;
+}
+
+#green .left,
+#green .right,
+#green .front,
+#green .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-color);
+  box-shadow: var(--box-shadow) inset;
+}
+
+#green .front {
+  transform: translateZ(2em);
+}
+
+#green .right {
+  transform: rotateY(90deg) translateZ(2em);
+}
+
+#green .left {
+  transform: rotateY(-90deg) translateZ(2em);
+}
+
+#green .back {
+  transform: rotateY(180deg) translateZ(2em);
+}
+
+#green .top {
+  position: absolute;
+  width: 4em;
+  height: 100%;
+  background-color: var(--green-color);
+  transform: rotateX(90deg) translateZ(2em);
+  box-shadow: var(--box-shadow) inset;
+}
+
+#green .bottom {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-color);
+  bottom: 0;
+  transform: translateY(50%) rotateX(90deg);
+  box-shadow: var(--box-shadow) outset;
+}
+
+#blue {
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  top: -1.5em;
+  left: -1.5em;
+}
+
+#blue .left,
+#blue .right,
+#blue .front,
+#blue .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue-color);
+  box-shadow: var(--box-shadow) inset;
+}
+
+#blue .front {
+  transform: translateZ(1.5em);
+}
+
+#blue .right {
+  transform: rotateY(90deg) translateZ(1.5em);
+}
+
+#blue .left {
+  transform: rotateY(-90deg) translateZ(1.5em);
+}
+
+#blue .back {
+  transform: rotateY(180deg) translateZ(1.5em);
+}
+
+#blue .top {
+  position: absolute;
+  width: 3em;
+  height: 100%;
+  background-color: var(--blue-color);
+  transform: rotateX(90deg) translateZ(1.5em);
+  box-shadow: var(--box-shadow) inset;
+}
+
+#blue .bottom {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue-color);
+  bottom: 0;
+  transform: translateY(50%) rotateX(90deg);
+  box-shadow: var(--box-shadow) inset;
+}
+
+#green {
+  transform: translateY(-5.25em) translateX(-2.1em) translateZ(0.5em)
+    rotateZ(-37.25deg);
+}
+
+#blue {
+  transform: translateY(-4.6em) translateX(2.75em) translateZ(1em)
+    rotateZ(52.75deg);
+}
+
+h1 {
+  color: #fff;
+  position: fixed;
+  transform: translateZ(+1em) translateY(-3.5em) translateX(-2.9em);
+  font-size: 2.5em;
+  line-height: 1.5em;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-shadow: 0 1px 0 #fff, 0 2px 0 #2b2b2b, 0 3px 0 #474747, 0 4px 0 #535252,
+    0 5px 0 #737373, 0 6px 0 #848484, 0 7px 0 #b3b3b3, 0 8px 0 #c1c1c1,
+    0 0 5px #002955, 0 -1px 3px;
+}
+
+h1 {
+  display: none;
+}
