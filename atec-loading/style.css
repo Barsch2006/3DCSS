@@ -1,0 +1,63 @@
+* {
+  user-select: none !important;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  font-size: min(4.5svh, 4.5svw);
+  perspective: 10em;
+  perspective-origin: 50% calc(50% - 3em);
+}
+
+.scene {
+  position: relative;
+  transform-style: preserve-3d;
+  margin-top: 3em;
+}
+
+.scene * {
+  transform-style: preserve-3d;
+}
+
+.logo-ball {
+  position: absolute;
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  background-image: radial-gradient(circle at top, #0000, #000000df),
+    url(./img/logo_light.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: jumpballUp 2s infinite ease-out,
+    jumbballright 8s infinite alternate linear;
+}
+
+@keyframes jumpballUp {
+  0%,
+  100% {
+    bottom: 0em;
+  }
+
+  50% {
+    bottom: 10em;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes jumbballright {
+  0% {
+    transform: translateX(calc(-50svw));
+  }
+  100% {
+    transform: translateX(calc(50svw - 4em));
+  }
+}
