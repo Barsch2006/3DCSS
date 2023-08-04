@@ -214,11 +214,13 @@ body {
 #green {
   transform: translateY(-5.25em) translateX(-2.1em) translateZ(0.5em)
     rotateZ(-37.25deg);
+  animation: cubeAnimationGreen infinite 20s forwards;
 }
 
 #blue {
   transform: translateY(-4.6em) translateX(2.75em) translateZ(1em)
     rotateZ(52.75deg);
+  animation: cubeAnimationBlue infinite 20s forwards;
 }
 
 #orange {
@@ -234,5 +236,43 @@ body {
   }
   100% {
     transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cubeAnimationGreen {
+  0% {
+    transform: translateY(-5.25em) translateX(-2.1em) translateZ(0.5em)
+      rotateZ(-37.25deg);
+  }
+  24% {
+    transform: translateY(-7.25em) translateX(-4.1em) translateZ(0.5em)
+      rotateZ(-135deg);
+  }
+  50% {
+    transform: translateY(-7.25em) translateX(-4.1em) translateZ(0.5em)
+      rotateZ(-135deg);
+  }
+  100% {
+    transform: translateY(-5.25em) translateX(-2.1em) translateZ(0.5em)
+      rotateZ(-37.25deg);
+  }
+}
+
+@keyframes cubeAnimationBlue {
+  0% {
+    transform: translateY(-4.6em) translateX(2.75em) translateZ(1em)
+      rotateZ(52.75deg);
+  }
+  24% {
+    transform: translateY(-6.6em) translateX(4.75em) translateZ(1em)
+      rotateZ(140deg);
+  }
+  50% {
+    transform: translateY(-6.6em) translateX(4.75em) translateZ(1em)
+      rotateZ(140deg);
+  }
+  100% {
+    transform: translateY(-4.6em) translateX(2.75em) translateZ(1em)
+      rotateZ(52.75deg);
   }
 }
